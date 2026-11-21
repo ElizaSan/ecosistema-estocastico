@@ -51,4 +51,22 @@ th{color:var(--muted);font-weight:500}
 td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .empty{color:var(--muted);padding:12px 0}
 .scroll{overflow-x:auto}
+
+
+/* Cabecera y pestañas */
+.cabecera{padding-bottom:0}
+.tabs{display:flex;gap:4px;margin-top:20px;border-bottom:1px solid var(--line)}
+.tab{border:0;border-bottom:3px solid transparent;border-radius:0;background:none;color:var(--muted);padding:0 14px}
+.tab.activa{color:var(--ink);border-bottom-color:var(--acc)}
+.tab:hover{color:var(--ink)}
+
+/* Pestaña de descripción */
+.info{max-width:860px}
+.info h3{font:700 18px "Space Grotesk",sans-serif;margin:28px 0 8px}
+.info p,.info li{max-width:70ch}
+.info table{margin:8px 0}
+.info ol,.info ul{padding-left:22px}
+.info li{margin-bottom:6px}
+.resultados{list-style:none;padding-left:0 !important}
+
 @media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;color:var(--muted)}.stack td:empty{display:none}}

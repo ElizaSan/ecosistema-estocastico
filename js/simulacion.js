@@ -341,6 +341,22 @@ $('bBorrar').addEventListener('click', () => {
   pintarCatalogo();
 });
 
+
+// ================================================================
+// 10. PESTAÑAS
+// ================================================================
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => {
+      t.classList.toggle('activa', t === tab);
+      t.setAttribute('aria-selected', t === tab);
+    });
+    document.querySelectorAll('.vista').forEach(v => v.hidden = v.id !== tab.dataset.vista);
+    if (tab.dataset.vista === 'vista-sim') dibujarGrafica(mundo);
+  });
+});
+
+
 pintarCatalogo();
 const vistaPrevia = crearMundo(leerParams()); dibujar(vistaPrevia); dibujarGrafica(null);
 new ResizeObserver(() => dibujarGrafica(mundo)).observe(gLienzo);
