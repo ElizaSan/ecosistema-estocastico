@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ecosistema estocástico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+
+
+</head>
+<body>
+<div class="band">
+  <h1>Ecosistema estocástico</h1>
+  <p class="sub">Un terreno generado con ruido de Perlin produce recursos que cambian con el tiempo. Los organismos comen, se mueven, se reproducen con mutaciones y mueren. Ajusta los parámetros, pulsa Iniciar y observa si el sistema se extingue, dura poco o encuentra estabilidad.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="world">
+        <canvas id="mundo" width="800" height="500"></canvas>
+        <div id="overlay"><div class="big" id="ovTitulo">Listo para iniciar</div><div id="ovTexto">Elige los parámetros y pulsa Iniciar.</div></div>
+      </div>
+      <div class="progress"><i id="barra"></i></div>
+      <div class="chartbox"><canvas id="grafica"></canvas></div>
+      <div class="stats">
+        <div class="stat">Población<b id="sPob">0</b></div>
+        <div class="stat">Tiempo<b id="sTick">0</b></div>
+        <div class="stat">Generación máx.<b id="sGen">0</b></div>
+        <div class="stat">Velocidad media<b id="sVel">–</b></div>
+        <div class="stat">Percepción media<b id="sPer">–</b></div>
+        <div class="stat">Umbral reprod.<b id="sUmb">–</b></div>
+      </div>
+    </div>
+
+    <div class="card" id="panel">
+      <h2>Parámetros</h2>
+      <div class="ctl"><label for="pPob">Población inicial <span id="vPob"></span></label><input type="range" id="pPob" min="10" max="1000" step="10" value="200"></div>
+      <div class="ctl"><label for="pTrans">Velocidad de transformación <span id="vTrans"></span></label><input type="range" id="pTrans" min="0" max="5" step="0.1" value="1"><small>Qué tan rápido cambia el terreno.</small></div>
+      <div class="ctl"><label for="pAzar">Grado de aleatoriedad <span id="vAzar"></span></label><input type="range" id="pAzar" min="0" max="1" step="0.05" value="0.3"><small>Movimiento errático y rugosidad del terreno.</small></div>
+      <div class="ctl"><label for="pEvo">Evolución (mutación) <span id="vEvo"></span></label><input type="range" id="pEvo" min="0" max="0.5" step="0.01" value="0.1"><small>Cuánto cambian los hijos respecto a sus padres.</small></div>
+      <div class="ctl"><label for="pRegen">Regeneración de recursos <span id="vRegen"></span></label><input type="range" id="pRegen" min="0.002" max="0.03" step="0.001" value="0.01"></div>
+      <div class="ctl"><label for="pVelSim">Velocidad de simulación <span id="vVelSim"></span></label><input type="range" id="pVelSim" min="1" max="40" step="1" value="5"></div>
+      <div class="ctl"><label for="pSemilla">Semilla</label>
+        <div class="row"><input type="number" id="pSemilla" value="12345" style="flex:1"><button id="bDado" title="Semilla al azar">Al azar</button></div></div>
+      <div class="row"><button class="primary" id="bIniciar">Iniciar</button><button id="bPausa" disabled>Pausa</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="band">
+  <div class="card">
+    <h2>Catálogo de mundos</h2>
+    <div class="tally" id="conteo"></div>
+    <div id="catalogo"></div>
+    <div class="row" style="margin-top:12px"><button id="bBorrar">Borrar catálogo</button></div>
+  </div>
+</div>
+
+<script src="js/simulacion.js"></script>
+
+</body>
+</html>
